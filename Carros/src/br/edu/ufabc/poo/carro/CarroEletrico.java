@@ -11,21 +11,20 @@ public class CarroEletrico extends Carro {
 		this.fatorAceleracao = fatorAceleracao;
 	}
 	
+	@Override
 	public void acelerar(){
-		if(velocidade == 0) {
+		velocidade *= fatorAceleracao;
+		
+		if(velocidade < velocidadeInicial) {
 			velocidade = velocidadeInicial;
 		}
-		else {
-			velocidade *= fatorAceleracao;
-		}
-				
-		if(velocidade > velocidadeMax) {
-			velocidade = velocidadeMax;
+		else if(velocidade > this.velocidadeMax) {
+			velocidade = this.velocidadeMax;
 		}
 	}
 	
 	public void frear() {
-		velocidade -= fatorAceleracao/2 ;
+		velocidade /= fatorAceleracao ;
 	}
 
 }
