@@ -1,8 +1,9 @@
 package br.edu.ufabc.poo.darksouls.inimigos;
 
+import br.edu.ufabc.poo.darksouls.Curavel;
 import br.edu.ufabc.poo.darksouls.jogador.Jogador;
 
-public class CavaleiroPrata extends Inimigo {
+public class CavaleiroPrata extends Inimigo implements Curavel {
 
 	public CavaleiroPrata(String nome, double vida, String tipoArma) {
 		super(nome, vida, tipoArma);
@@ -34,6 +35,11 @@ public class CavaleiroPrata extends Inimigo {
 			return "Inimigo morto";
 		}
 		
+	}
+
+	@Override
+	public void recuperarVida() {
+		this.vida += 15;		
 	}
 
 }
